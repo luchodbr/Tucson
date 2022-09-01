@@ -1,0 +1,20 @@
+<h1 class="text-center">Lista de Espera: {{listEspera.length}}</h1>
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th scope="col">NroCliente</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">NroMesa</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let espera of listEspera">
+            <td>{{espera.nroCliente}}</td>
+            <td>{{espera.fecha}}</td>
+            <td>{{espera.nombre}}</td>
+            <td>{{espera.cantidad}}</td>
+        </tr>
+
+    </tbody>
+</table>

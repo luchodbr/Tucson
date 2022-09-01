@@ -1,0 +1,19 @@
+<p-toast position="top-right" key="tr"></p-toast>
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-7" *ngIf="listReservas != null && listReservas.length > 0">
+            <app-lista-reservas [listReservas]="listReservas" (reservaToDelete)="deleteReserva($event)"
+                (openDialog)="showDialog()">
+            </app-lista-reservas>
+        </div>
+        <div class="col-5" *ngIf="listEspera != null && listEspera.length > 0">
+            <app-lista-espera [listEspera]="listEspera"></app-lista-espera>
+        </div>
+    </div>
+
+
+
+</div>
+<p-dialog [(visible)]="display">
+    <app-create-reserva [listClientes]="listClientes" (reservaToCreate)="createReserva($event)"></app-create-reserva>
+</p-dialog>

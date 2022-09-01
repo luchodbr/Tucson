@@ -1,0 +1,38 @@
+<h1 class="text-center">Lista de Reservas: {{listReservas.length}}</h1>
+<div class="main-card mb-3 card">
+    <div class="card-header">
+        <div class="d-flex flex-row-reverse ">
+            <button pButton pRipple type="button" (click)="onClickAdd()" icon="pi pi-plus"
+                class="p-button-rounded p-button-info "></button>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">NroCliente</th>
+                    <th class="text-center">NombreCliente</th>
+                    <th class="text-center">Fecha</th>
+                    <th class="text-center">Turno</th>
+                    <th class="text-center">NroMesa</th>
+                    <th class="text-center">Cubiertos</th>
+                    <th class="text-center">Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reserva of listReservas">
+                    <td class="text-center">{{reserva.nroCliente}}</td>
+                    <td class="text-center">{{reserva.nombreCliente}}</td>
+                    <td class="text-center">{{reserva.fecha}}</td>
+                    <td class="text-center">{{reserva.turno}}</td>
+                    <td class="text-center">{{reserva.nroMesa}}</td>
+                    <td class="text-center">{{reserva.cantidad}}</td>
+                    <td class="text-center"><button pButton pRipple type="button" icon="pi pi-trash"
+                            class="p-button-rounded p-button-text p-button-plain"
+                            (click)="onCancelReserva(reserva.idReserva)"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
