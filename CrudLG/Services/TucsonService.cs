@@ -64,7 +64,6 @@ namespace CrudLG.Services
                     var espera = _context.Reservas.Where(r => r.Estado == Reserva.EEstados.EnEspera && r.Cantidad == reserva.Cantidad).FirstOrDefault();
                     if (espera != null)
                     {
-
                         espera.Estado = Reserva.EEstados.EnCurso;
                         espera.NroMesa = reserva.NroMesa;
                         _context.Reservas.Update(espera);

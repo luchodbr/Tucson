@@ -29,11 +29,13 @@ export class CreateReservaComponent implements OnInit {
 
   }
   onSelectClient() {
+    this.maxDateValue.setFullYear(this.minDateValue.getFullYear());
+    this.maxDateValue.setMonth(this.minDateValue.getMonth());
     if (this.f['cliente'].value.categoria == 0) {
-      this.maxDateValue!.setDate(this.minDateValue.getDate() + 365)
+      this.maxDateValue.setDate(this.minDateValue.getDate() + 365)
     }
     else {
-      this.maxDateValue!.setDate(this.minDateValue.getDate() + this.f['cliente'].value.categoria - 1);
+      this.maxDateValue.setDate(this.minDateValue.getDate() + this.f['cliente'].value.categoria - 1);
     }
   }
   crearReserva() {

@@ -5,7 +5,7 @@
     <form [formGroup]="reservaForm">
         <div class="row">
             <div class="col-6">
-                <div class="form-group mt-5">
+                <div class="form-group mt-5 mb-3">
                     <h4>Cliente</h4>
                     <select class="form-select" (change)="onSelectClient()" formControlName="cliente">
                         <option *ngFor=" let cliente of listClientes" [ngValue]="cliente">{{cliente.nombre}}</option>
@@ -13,14 +13,14 @@
                 </div>
             </div>
             <div class="col-6" *ngIf="this.f['cliente'].value !=null">
-                <div class=" form-group mt-5">
+                <div class=" form-group mt-5 mb-3">
                     <h4>NroCliente</h4>
                     <input type="number" class="form-control" [disabled]="true"
                         [value]="this.f['cliente'].value.nroCliente">
                 </div>
             </div>
             <div class="col-12" *ngIf="this.f['cliente'].value !=null">
-                <div class="form-group mt-5">
+                <div class="form-group mb-3">
                     <h4>Categoría</h4>
                     <input type="text" class="form-control" [disabled]="true"
                         [value]="this.f['cliente'].value.categoria | categoriaEnum">
@@ -28,18 +28,19 @@
             </div>
             <div class="col-12" *ngIf="this.f['cliente'].value !=null">
                 <h4>Cantidad</h4>
-                <select class="form-select" formControlName="cantidad">
+                <select class="form-select mb-3" formControlName="cantidad">
                     <option [ngValue]="2">2</option>
                     <option [ngValue]="4">4</option>
                     <option [ngValue]="6">6</option>
                 </select>
             </div>
 
-            <div class="col-12" *ngIf="this.f['cliente'].value !=null">
-                <div class="form-group mt-5">
+            <div class="col-12 mb-3" *ngIf="this.f['cliente'].value !=null">
+                <div class="form-group mb-3">
                     <h4>Fecha</h4>
-                    <p-calendar dataType="string" dateFormat="mm/dd/yy" formControlName="fecha" [minDate]="minDateValue"
-                        [maxDate]="maxDateValue" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [style]="{'width': '100%'}" dataType="string" dateFormat="mm/dd/yy"
+                        formControlName="fecha" [minDate]="minDateValue" [maxDate]="maxDateValue"
+                        [readonlyInput]="true"></p-calendar>
                 </div>
             </div>
 
