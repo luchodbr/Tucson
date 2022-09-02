@@ -27,7 +27,9 @@
                     <td class="text-center">{{reserva.turno}}</td>
                     <td class="text-center">{{reserva.nroMesa}}</td>
                     <td class="text-center">{{reserva.cantidad}}</td>
-                    <td class="text-center"><button pButton pRipple type="button" icon="pi pi-trash"
+                    <td class="text-center">
+
+                        <button pButton pRipple type="button" icon="pi pi-trash"
                             class="p-button-rounded p-button-text p-button-plain"
                             (click)="onCancelReserva(reserva.idReserva)"></button>
                     </td>
@@ -36,3 +38,5 @@
         </table>
     </div>
 </div>
+<p-confirmDialog header="Esta seguro que desea cancelar la reserva?" icon="pi pi-exclamation-triangle">
+</p-confirmDialog>

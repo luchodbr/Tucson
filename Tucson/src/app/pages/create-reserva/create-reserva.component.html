@@ -35,10 +35,11 @@
                 </select>
             </div>
 
-            <div class="col-12">
+            <div class="col-12" *ngIf="this.f['cliente'].value !=null">
                 <div class="form-group mt-5">
                     <h4>Fecha</h4>
-                    <input type="date" class="form-control form-style input" formControlName="fecha" />
+                    <p-calendar dataType="string" dateFormat="mm/dd/yy" formControlName="fecha" [minDate]="minDateValue"
+                        [maxDate]="maxDateValue" [readonlyInput]="true"></p-calendar>
                 </div>
             </div>
 

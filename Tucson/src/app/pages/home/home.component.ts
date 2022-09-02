@@ -61,6 +61,7 @@ export class HomeComponent implements OnInit {
     this.tucsonServ.Delete(id).subscribe(c => {
       this.showToast("success", "Successfull", "Se borró con exito");
       this.refreshList();
+      this.refreshListEspera();
     });
   }
   showToast(severity: string, summary: string, detail: string) {

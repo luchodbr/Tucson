@@ -48,19 +48,32 @@ namespace CrudLG.Services
         {
             try
             {
-                var Reserva = _context.Reservas.Find(id);
-                if (Reserva == null)
+                var reserva = _context.Reservas.Find(id);
+                if (reserva == null)
                 {
                     throw new Exception("not found");
 
                 }
                 else
                 {
-                    Reserva.Estado = Reserva.EEstados.Cancelado;
-                    var mesa = _context.Mesa.Find(Reserva.NroMesa);
+                    reserva.Estado = Reserva.EEstados.Cancelado;
+                    var mesa = _context.Mesa.Find(reserva.NroMesa);
                     mesa.EstaLibre = true;
-                    _context.Mesa.Update(mesa);
-                    _context.Reservas.Update(Reserva);
+                  
+                    _context.Reservas.Update(reserva);
+                    var espera = _context.Reservas.Where(r => r.Estado == Reserva.EEstados.EnEspera && r.Cantidad == reserva.Cantidad).FirstOrDefault();
+                    if (espera != null)
+                    {
+
+                        espera.Estado = Reserva.EEstados.EnCurso;
+                        espera.NroMesa = reserva.NroMesa;
+                        _context.Reservas.Update(espera);
+                    }
+                    else
+                    {
+                        _context.Mesa.Update(mesa);
+                    }
+                    
                     _context.SaveChanges();
                 }
 

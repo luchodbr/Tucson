@@ -13,7 +13,8 @@ import { CreateReservaComponent } from './pages/create-reserva/create-reserva.co
 import { ButtonModule } from 'primeng/button';
 import { CategoriaEnumPipe } from './categoria-enum.pipe';
 import { Toast, ToastModule } from 'primeng/toast';
-
+import { CalendarModule } from 'primeng/calendar';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,10 @@ import { Toast, ToastModule } from 'primeng/toast';
     DialogModule,
     ButtonModule,
     ReactiveFormsModule,
-    ToastModule
+    ToastModule,
+    CalendarModule,
+    ConfirmDialogModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
